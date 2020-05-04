@@ -11,7 +11,7 @@ mov ebp, esp
 sub esp, 1000h
 
 push edx
-mov ebx, 0x0 ; TODO: add your module hash
+mov ebx, 0x4b1ffe8e; Kernell32.dll
 call get_module_address
 pop edx
 
@@ -25,8 +25,35 @@ call get_api_address
 pop edx
 pop ebp
 
+
 ;TODO call your api
 
+; Call LoadLibraryA to get user32.dll into memory
+push ebp
+push edx
+lea eax, [EDX + USER32]
+push eax
+call [EDX + LoadLibraryA]
+pop edx
+pop ebp
+
+; Build user32 API function pointer table
+push ebp
+push edx
+mov ebp, eax
+lea esi, [EDX + USER32HASHTABLE]
+lea edi, [EDX + USER32FUNCTIONSTABLE]
+call get_api_address
+pop edx
+pop ebp
+
+; call messageboxa
+push 0x00
+push 0x6948
+push 0x00
+push 0x00
+push dword [EDX + MESSAGEBOXA]
+call eax
 
 ; returns module base in EAX
 ; EBP = Hash of desired module
@@ -132,9 +159,21 @@ jnz load_api_hash
 ret
 
 KERNEL32HASHTABLE:
-	dd 0x95902b19 ;TODO: add your API hash(es) here
+	dd 0xc8e88006 ; LoadLibraryA
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
 ExitProcess:
 	dd 0x00000001
+LoadLibraryA:
+	dd 0x00000002
+
+USER32HASHTABLE:
+	dd 0xafbc602d
+
+USER32FUNCTIONSTABLE:
+MESSAGEBOXA:
+	dd 0x00000003
+
+USER32:
+	db "user32.dll", 0x00
