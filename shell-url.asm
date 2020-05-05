@@ -74,8 +74,9 @@ push 0x00 ; push utype
 push 0x00 ; push lpcaption
 push eax ; push lptext
 push 0x00 ; push hwnd
+mov edx, ebx ; trying to presever edx
 call [EDX + MESSAGEBOXA]
-
+mov edx, ebx ; Moved back to be consistent
 
 ; call URLDownloadToFile
 
