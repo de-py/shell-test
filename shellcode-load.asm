@@ -48,10 +48,13 @@ pop edx
 pop ebp
 
 ; call messageboxa
+push 0x00 # utype
+push 0x6948 # lptext
+mov eax, esp
+push 0x00 # lpcaption
 push 0x00
-push 0x00
-push 0x6948
-push 0x00
+push eax
+push 0x00 # hwnd
 call [EDX + MESSAGEBOXA]
 
 
