@@ -160,7 +160,7 @@ ret
 
 KERNEL32HASHTABLE:
 	dd 0x95902b19 ; ExitProcess
-	dd 0xc8e88026 ; LoadLibraryA
+	dd 0xc8ac8026 ; LoadLibraryA
 	; dd 0xe8bf6dad
 	dd 0xFFFF ; make sure to end with this token
 
