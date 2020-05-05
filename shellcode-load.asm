@@ -52,8 +52,8 @@ push 0x00
 push 0x6948
 push 0x00
 push 0x00
-push dword [EDX + MESSAGEBOXA]
-call eax
+call [EDX + MESSAGEBOXA]
+
 
 ; returns module base in EAX
 ; EBP = Hash of desired module
