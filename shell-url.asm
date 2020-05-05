@@ -215,7 +215,7 @@ USER32:
 	db "user32.dll", 0
 
 URLMONHASHTABLE:
-	dd 0xb1b2ba47 ;  URLDownloadToFile
+	dd 0xd95d2399 ;  URLDownloadToFileA
 	dd 0xFFFF
 
 URLMONFUNCTIONSTABLE:
