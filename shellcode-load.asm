@@ -159,23 +159,23 @@ jnz load_api_hash
 ret
 
 KERNEL32HASHTABLE:
-	dd 0x9590a319 ; ExitProcess
+	; dd 0x9590a319 ; ExitProcess
 	dd 0xc8e88006 ; LoadLibraryA
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
-ExitProcess:
-	dd 0x00000000
+; ExitProcess:
+; 	dd 0x00000000
 LoadLibraryA:
-	dd 0x00000001
+	dd 0x00000000
 
 USER32HASHTABLE:
-	dd 0xafbc602d
+	dd 0xafbc602d ; messagebox
 	dd 0xFFFF
 
 USER32FUNCTIONSTABLE:
 MESSAGEBOXA:
-	dd 0x00000002
+	dd 0x00000001
 
 USER32:
 	db "user32.dll", 0
