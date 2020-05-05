@@ -49,8 +49,8 @@ pop ebp
 
 ; call messageboxa
 push 0x00
-push 0x6948
 push 0x00
+push 0x6948
 push 0x00
 call [EDX + MESSAGEBOXA]
 
