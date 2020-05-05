@@ -106,7 +106,7 @@ load_api_hash:
 push edi
 push esi
 mov esi, [esi]
-xor ecx, ecx
+; xor ecx, ecx
 
 load_api_name:
 mov edi, [ebx]
