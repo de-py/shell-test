@@ -82,8 +82,8 @@ mov edx, ebx ; Moved back to be consistent
 
 lea esi, [EDX + URL]
 lea edi, [EDX + URLFILENAME]
-push 0x00 ; push lpbindstatuscallback
-push 0x00 ; Reserver, must be 0
+push 0x00 ; push lpfnCB
+push 0x00 ; Reserved, must be 0
 push edi ; push szFileName
 push esi ; push szURL
 push 0x00 ; push pcaller
@@ -229,7 +229,7 @@ URLMON:
 	db "urlmon.dll", 0
 
 URL:
-	db "https://images.freeimages.com/images/large-previews/199/sunflowers-6-1392951.jpg", 0
+	db "http://images.freeimages.com/images/large-previews/199/sunflowers-6-1392951.jpg", 0
 
 URLFILENAME:
 	db "flower.jpeg", 0
