@@ -48,13 +48,13 @@ pop edx
 pop ebp
 
 ; call messageboxa
-push 0x00 # utype
-push 0x6948 # lptext
-mov eax, esp
-push 0x00 # lpcaption
-push 0x00
-push eax
-push 0x00 # hwnd
+push 0x00 ; null byte for hi
+push 0x6948 ; hi
+mov eax, esp ; mov pointer to eax
+push 0x00 ; push utype
+push 0x00 ; push lpcaption
+push eax ; push lptext
+push 0x00 ; push hwnd
 call [EDX + MESSAGEBOXA]
 
 
