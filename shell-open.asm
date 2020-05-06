@@ -101,7 +101,7 @@ mov edx, ebx ; Moved back to be consistent
 lea esi, [EDX + EXE]
 push 0x00
 push esi
-call [EDX + ]
+call [EDX + WinExec]
 
 ; CreatProcess This failed to be 
 ; found by the hash
