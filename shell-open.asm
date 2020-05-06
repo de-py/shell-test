@@ -232,12 +232,14 @@ KERNEL32HASHTABLE:
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
-ExitProcess:
+CreateProcessA:
 	dd 0x00000000
+; ExitProcess:
+; 	dd 0x00000000
 LoadLibraryA:
 	dd 0x00000001
-WinExec:
-	dd 0x00000002
+; WinExec:
+; 	dd 0x00000002
 
 USER32HASHTABLE:
 	dd 0xabbc680d ; messageboxa
