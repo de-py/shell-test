@@ -220,7 +220,7 @@ ret
 KERNEL32HASHTABLE:
 	dd 0x95902b19 ; ExitProcess
 	dd 0xc8ac8026 ; LoadLibraryA
-	dd 0x0c8c6315 ; CreateProcess
+	dd 0x46318ac7 ; CreateProcess
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
