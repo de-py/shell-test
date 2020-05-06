@@ -105,7 +105,7 @@ mov edx, ebx ; Moved back to be consistent
 
 ; CreatProcess This failed to be 
 ; found by the hash
-int 3
+
 lea esi, [EDX + EXE]
 push esp
 push esp
