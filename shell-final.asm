@@ -248,17 +248,17 @@ ret
 
 KERNEL32HASHTABLE:
 	dd 0x46318ac7 ; CreateProcessA
-	dd 0x95902b19 ; ExitProcess
 	dd 0xc8ac8026 ; LoadLibraryA
+	dd 0x95902b19 ; ExitProcess
 	; dd 0xe8bf6dad  ; WinExec
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
 CreateProcessA:
 	dd 0x00000000
-ExitProcess:
-	dd 0x00000001
 LoadLibraryA:
+	dd 0x00000001
+ExitProcess:
 	dd 0x00000002
 ; WinExec:
 ; 	dd 0x00000002
