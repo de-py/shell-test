@@ -105,10 +105,31 @@ mov edx, ebx ; Moved back to be consistent
 
 ; CreatProcess This failed to be 
 ; found by the hash
-push eax
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+push 0x00
 mov eax, esp
+push 0x00
+push 0x00
+push 0x00
+push 0x00
+mov ebx, esp
 lea esi, [EDX + EXE]
-push eax
+push ebx
 push eax
 push 0x00
 push 0x00
