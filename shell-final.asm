@@ -121,9 +121,9 @@ push 0x00 ; pushing enough space for pointers
 push 0x00
 push 0x00
 push 0x00
-mov ebx, esp
+mov ecx, esp
 lea esi, [EDX + EXE]
-push ebx ; push lpProcessInformation
+push ecx ; push lpProcessInformation
 push eax ; push lpStartupInfo
 push 0x00 ; push lpCurrentDirectory
 push 0x00 ; push lpEnvironment
@@ -248,17 +248,18 @@ ret
 
 KERNEL32HASHTABLE:
 	dd 0x46318ac7 ; CreateProcessA
-	dd 0xc8ac8026 ; LoadLibraryA
 	dd 0x95902b19 ; ExitProcess
+	dd 0xc8ac8026 ; LoadLibraryA
+	
 	; dd 0xe8bf6dad  ; WinExec
 	dd 0xFFFF ; make sure to end with this token
 
 KERNEL32FUNCTIONSTABLE:
 CreateProcessA:
 	dd 0x00000000
-LoadLibraryA:
-	dd 0x00000001
 ExitProcess:
+	dd 0x00000001
+LoadLibraryA:
 	dd 0x00000002
 ; WinExec:
 ; 	dd 0x00000002
