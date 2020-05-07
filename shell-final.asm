@@ -138,7 +138,7 @@ mov edx, ebx ; replacing edx
 
 ; Call Exit Process
 push 0x00
-call [edx + Exit]
+call [edx + ExitProcess]
 
 
 
